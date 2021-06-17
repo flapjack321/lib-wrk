@@ -1,0 +1,10 @@
+menuconfig LIBWRK
+	bool "wrk Unikraft library"
+	default n
+
+if LIBWRK
+config LIBWRK_MAIN_FUNCTION
+	bool "Provide main function"
+	default n
+
+endif
