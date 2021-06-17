@@ -1,0 +1,25 @@
+From 7c8e75a0c6a4c84f173c9e4229ed8fef78b8949b Mon Sep 17 00:00:00 2001
+From: Ethan Cotterell <e.cotterell@lancaster.ac.uk>
+Date: Thu, 17 Jun 2021 21:36:06 +0100
+Subject: [PATCH] wrk: add version number
+
+---
+ src/wrk.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/wrk.c b/src/wrk.c
+index 51f46f7..dc2c94f 100644
+--- a/src/wrk.c
++++ b/src/wrk.c
+@@ -4,6 +4,8 @@
+ #include "script.h"
+ #include "main.h"
+ 
++const char *VERSION = "4.1.0";
++
+ static struct config {
+     uint64_t connections;
+     uint64_t duration;
+-- 
+2.25.1
+
