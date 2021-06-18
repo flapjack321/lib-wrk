@@ -1,0 +1,26 @@
+From ee93fcf81f684894a80e3f03e47e98284ce3ebe8 Mon Sep 17 00:00:00 2001
+From: Ethan Cotterell <e.cotterell@lancaster.ac.uk>
+Date: Fri, 18 Jun 2021 10:41:13 +0100
+Subject: [PATCH 2/3] wrk: fix call to deprecated function `lua_objlen`.
+
+As described in https://wiki.gentoo.org/wiki/Lua/Porting_notes
+---
+ src/script.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/script.c b/src/script.c
+index 68a5d08..a1cad1e 100644
+--- a/src/script.c
++++ b/src/script.c
+@@ -107,7 +107,7 @@ bool script_resolve(lua_State *L, char *host, char *service) {
+     lua_call(L, 2, 0);
+ 
+     lua_getfield(L, -1, "addrs");
+-    size_t count = lua_objlen(L, -1);
++    size_t count = lua_rawlen(L, -1);
+     lua_pop(L, 2);
+     return count > 0;
+ }
+-- 
+2.25.1
+
